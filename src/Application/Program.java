@@ -7,10 +7,15 @@ import Model.Entities.Seller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
+
+import javax.sound.sampled.SourceDataLine;
 
 public class Program {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
 
         SellerDao sellerdao = DaoFactory.createSellerDao();
         
@@ -49,7 +54,12 @@ public class Program {
         System.out.println("update COmpleted! ");
 
         
-
+        System.out.println("-------\n TEST 6: SELLER Delete----------");
+        System.out.println("Informe o ID de delete");
+        int ids = sc.nextInt();
+        sellerdao.delete(ids);
+        System.out.println("Excluidp! ");
+        sc.close();
 
 
         
