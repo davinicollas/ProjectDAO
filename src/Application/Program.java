@@ -1,10 +1,12 @@
 package Application;
 
 import Model.DAO.DaoFactory;
+import Model.DAO.DepartamentDao;
 import Model.DAO.SellerDao;
 import Model.Entities.Departament;
 import Model.Entities.Seller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -16,8 +18,39 @@ public class Program {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Mostrar via id: ");
+        DepartamentDao deppartamentDao = DaoFactory.createDepartamentoDao();
+        Departament dep = deppartamentDao.findById(3);
+        System.out.println(dep);
 
-        SellerDao sellerdao = DaoFactory.createSellerDao();
+        System.out.println("Mostrar todos: ");
+
+        List<Departament>list = deppartamentDao.findAll();
+
+        for(Departament obj: list){
+            System.out.println(obj);
+        }
+
+        System.out.println("Inserir: ");
+
+        Departament NewDepar = new  Departament(null,"caixa");
+        deppartamentDao.insert(NewDepar);
+        System.out.println("Insert " + NewDepar.getId());
+
+
+        System.out.println("deletar: ");
+        System.out.print("Enter id for delete test: ");
+		int id = sc.nextInt();
+		deppartamentDao.delete(id);
+		System.out.println("Delete completed");
+
+		System.out.println("update:: ");
+        Departament dep2 = deppartamentDao.findById(1);
+		dep2.setName("Food");
+		deppartamentDao.update(dep2);
+		System.out.println("Update completed");
+
+        /*SellerDao sellerdao = DaoFactory.createSellerDao();
         
         System.out.println("-------TEST 1: SELLER FINDBYID----------");
         Seller seller = sellerdao.findById(3);
@@ -33,7 +66,7 @@ public class Program {
         	System.out.println(obj);	
         	
         }
-*/
+
         System.out.println("-------\n TEST 3: SELLER findall----------");
 		List<Seller> list = sellerdao.findAll();
         for(Seller obj : list) {
@@ -62,7 +95,14 @@ public class Program {
         sc.close();
 
 
-        
-        
+        */
+
+
+       /* Departament NewDepar = new  Departament(null,"caixa");
+        dep.insert(NewDepar);
+        System.out.println("Insert " + NewDepar.getId());
+*/
+
+    
     }
 }
