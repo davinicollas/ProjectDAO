@@ -1,6 +1,6 @@
-package model.DAO;
+package Model.DAO;
 
-import model.entities.Departament;
+import  Model.Entities.Departament;
 
 import java.util.List;
 
