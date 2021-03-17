@@ -107,4 +107,5 @@ public class Seller implements Serializable {
                 ", departament=" + departament +
                 ']';
     }
+    
 }
