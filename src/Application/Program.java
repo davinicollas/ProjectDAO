@@ -42,6 +42,16 @@ public class Program {
         sellerdao.insert(newSeller);
         System.out.println("Insert " +newSeller.getId());
 
+        System.out.println("-------\n TEST 5: SELLER UPDATE----------");
+		seller = sellerdao.findById(1);
+        seller.setName("MUsic");
+        sellerdao.update(seller);
+        System.out.println("update COmpleted! ");
+
+        
+
+
+
         
         
     }
